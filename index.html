@@ -3,113 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    </head>
+    <title>John Doe - Dynamic Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
 <body>
     <div id="app-container">
+        
+        <header id="mobile-header">
+            <h1 class="logo">John Doe</h1>
+            <button id="menu-toggle">☰</button>
+        </header>
+
         <aside id="sidebar">
-            <h1 class="logo">Your Name</h1>
-            <nav>
+            <h1 class="logo">John Doe</h1>
+            <nav id="desktop-nav">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
+            <div id="reading-progress-indicator"></div> 
         </aside>
 
+        <nav id="mobile-nav">
+             <a href="#home" class="mobile-nav-link">Home</a>
+             <a href="#about" class="mobile-nav-link">About</a>
+             <a href="#skills" class="mobile-nav-link">Skills</a>
+             <a href="#work" class="mobile-nav-link">Work</a>
+             <a href="#contact" class="mobile-nav-link">Contact</a>
+        </nav>
+
         <main id="content-area">
-    <section id="home" class="content-section hero-section">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is the hero section. Scroll down to see more!</p>
-    </section>
-    
-    <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-    </section>
-    
-    <section id="skills" class="content-section">
-        <h2>Skills</h2>
-        <p>Skills content...</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... [Repeat this paragraph 10-15 times]</p>
-    </section>
-    
-    </main>
+            
+            <section id="home" class="content-section hero-section">
+                <div id="particles-js"></div> 
+                <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                    <p class="greeting">Hi, I'm</p>
+                    <h1 class="hero-title">John Doe.</h1>
+                    <span id="typed-output" class="hero-subtitle"></span>
+                    <a href="#work" class="cta-button">View My Work</a>
+                </div>
+            </section>
+            
+            <section id="about" class="content-section" data-aos="fade-up">
+                <h2>About Me</h2>
+                <p>I specialize in crafting elegant, responsive, and high-performance user interfaces. My work philosophy centers around clean code architecture and a dedication to superior user experience. I thrive in environments that challenge me to explore new technologies and deliver impactful results.</p>
+                <p>Over the last 5 years, I've transformed complex requirements into seamless, functional web applications. My passion lies in solving challenging problems and building intuitive, user-centric designs that leave a lasting impression.</p>
+            </section>
+            
+            <section id="skills" class="content-section">
+                <h2>Core Skills</h2>
+                
+                <div class="skill-item" data-aos="fade-right">
+                    <div class="skill-card">
+                        <h3>Frontend Mastery</h3>
+                        <p>React, Vue, state management (Redux/Vuex), and modern component architecture.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Redux</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-description">
+                        <p>I build single-page applications (SPAs) that are fast and scalable. Focusing on performance optimization and modular design is key to delivering maintainable and robust frontend solutions.</p>
+                    </div>
+                </div>
+
+                <div class="skill-item reverse" data-aos="fade-left">
+                    <div class="skill-description">
+                        <p>Expert in utility-first CSS (Tailwind) and complex component styling with Sass/Less. I guarantee pixel-perfect, responsive layouts that adapt beautifully to any screen size, ensuring a consistent user experience.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Design & Styling</h3>
+                        <p>Tailwind CSS, Sass, PostCSS, and deep knowledge of CSS Grid/Flexbox.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">Sass</span>
+                            <span class="skill-tag">CSS Grid</span>
+                            <span class="skill-tag">Responsive Design</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="95"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item" data-aos="fade-right">
+                    <div class="skill-card">
+                        <h3>Backend & Database</h3>
+                        <p>Node.js, Express, MongoDB, and RESTful API design.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-description">
+                        <p>Experience in designing robust backend services and efficient data models to power large-scale applications. I focus on secure and performant API development that serves diverse frontend needs.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="work" class="content-section">
+                <h2>Featured Projects</h2>
+                
+                <div class="work-subsection" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Project Alpha: E-commerce Platform</h3>
+                    <p>A full-stack e-commerce solution built with Next.js and Stripe integration. Focused on high-speed product loading and conversion tracking.</p>
+                    <a href="#" target="_blank">View Case Study</a>
+                </div>
+
+                <div class="work-subsection" data-aos="zoom-in" data-aos-delay="400">
+                    <h3>Project Beta: Data Visualization Dashboard</h3>
+                    <p>A responsive dashboard using D3.js and Vue to render complex data sets into intuitive charts and graphs. Designed for real-time analytics.</p>
+                    <a href="#" target="_blank">View Live Demo</a>
+                </div>
+
+                <div class="work-subsection" data-aos="zoom-in" data-aos-delay="600">
+                    <h3>Project Gamma: Portfolio Site Generator</h3>
+                    <p>A headless CMS project that allows users to generate and host their own portfolios instantly. Built with Strapi and deployed on Vercel.</p>
+                    <a href="#" target="_blank">GitHub Repo</a>
+                </div>
+            </section>
+            
+            <section id="contact" class="content-section" data-aos="fade-up">
+                <h2>Get In Touch</h2>
+                <p>I'm currently available for freelance projects and full-time roles. Let's create something exceptional together.</p>
+                <a href="mailto:your.email@example.com" class="cta-button contact-button">Say Hello!</a>
+                <div class="social-links">
+                    <a href="https://github.com/your-username" target="_blank">GitHub</a> |
+                    <a href="https://linkedin.com/in/your-username" target="_blank">LinkedIn</a>
+                </div>
+            </section>
+
+        </main>
     </div>
+
+    <div id="custom-cursor"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script src="js/script.js"></script>
 </body>
