@@ -1,3 +1,87 @@
+/* --- PRELOADER STYLES (NEW) --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-bg); /* Use the main dark background color */
+    z-index: 99999; /* Must be on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    /* Smooth transition for the fade-out effect */
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; 
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-logo {
+    color: var(--color-primary-accent);
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+    
+    /* Glowing effect */
+    text-shadow: 0 0 10px var(--color-primary-accent), 0 0 20px rgba(0, 188, 212, 0.5);
+    animation: pulse 1.5s infinite alternate;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background-color: rgba(0, 188, 212, 0.3);
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+}
+
+.loader-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--color-primary-accent), transparent);
+    animation: loader-sweep 1.5s infinite;
+}
+
+/* Keyframe Animations */
+@keyframes pulse {
+    from {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes loader-sweep {
+    0% {
+        transform: translateX(-100%) skewX(-30deg);
+    }
+    100% {
+        transform: translateX(300%) skewX(-30deg);
+    }
+}
+
+
 /* COLOR PALETTE (Sleek & Futuristic) */
 :root {
     --sidebar-width: 200px;
@@ -29,9 +113,7 @@ body {
     color: var(--color-text-light);
     line-height: 1.7;
     overflow-x: hidden;
-    /* STARTING COLOR & TRANSITION ADDED FOR GSAP */
-    background-color: var(--color-dark-bg); 
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: color 0.5s ease; 
     cursor: none; 
 }
 h1, h2, h3 {
@@ -157,8 +239,9 @@ p {
     position: relative; 
     z-index: 1; 
     
-    /* BACKGROUND OPACITY: Reduced to 0.65 for high particle visibility (translucency) */
-    background-color: rgba(6, 14, 21, 0.65); 
+    /* UPDATED INITIAL BACKGROUND OPACITY to 0.25 for better particle visibility */
+    background-color: rgba(6, 14, 21, 0.25); 
+    transition: background-color 0.5s ease; 
     
     background-image: none; 
     animation: none;
@@ -172,6 +255,16 @@ p {
     z-index: 2;
     background-color: transparent; 
     overflow: hidden; 
+    
+    /* 💥 NEW: Neon Separator Line */
+    border-bottom: 2px solid var(--color-border-glow);
+    box-shadow: 0 5px 20px -10px var(--color-border-glow);
+}
+
+/* Remove border from the last section (Contact) */
+#contact {
+    border-bottom: none;
+    box-shadow: none;
 }
 
 /* --- STATIC 3D SECTION-SPECIFIC GRADIENT STYLES --- */
@@ -371,7 +464,9 @@ p {
     border: 1px solid rgba(0, 188, 212, 0.1);
 }
 .progress-bar {
+    /* Since all are 100%, we use 100% here, and the attribute is for potential future use */
     height: 100%;
+    width: 100%; 
     background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
     transition: width 1.5s ease-out;
 }
@@ -518,9 +613,8 @@ button:hover ~ #custom-cursor,
         min-width: 100%;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        background-color: rgba(6, 14, 21, 1); 
         
-        /* Disable background on mobile for performance */
+        /* Disable gradient background images on mobile for performance */
         background-image: none; 
         animation: none;
     }
@@ -530,6 +624,12 @@ button:hover ~ #custom-cursor,
         content: none;
     }
     
+    /* Remove neon border on mobile for cleaner look */
+    .content-section {
+        border-bottom: none;
+        box-shadow: none;
+    }
+
     /* Layout Adjustments */
     .content-section { padding: 80px 20px; }
     .hero-title { font-size: 2.8rem; letter-spacing: 2px; }

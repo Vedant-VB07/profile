@@ -1,49 +1,191 @@
+/* --- PRELOADER HIDING LOGIC (NEW) --- */
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Use a slight delay (500ms) to ensure the animation is seen for a moment
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 500); 
+    }
+});
+
+
 // 1. Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 /* =======================================================
-   COLOR CHANGER (GSAP ScrollTrigger)
-   ======================================================= */
+    COLOR CHANGER (GSAP ScrollTrigger) 
+    ======================================================= */
 const initColorChanger = () => {
     const scrollColorElems = document.querySelectorAll(".content-section[data-bgcolor]");
+    const contentArea = document.getElementById('content-area');
+
+    if (!contentArea) return;
     
+    // Get the initial background and text color from the content area's CSS
+    const initialBg = window.getComputedStyle(contentArea).backgroundColor;
+    const initialText = window.getComputedStyle(document.body).color;
+
+
     scrollColorElems.forEach((colorSection, i) => {
         // Determine the color of the previous section for the transition back
-        // Defaults to the body's initial color (set in CSS) if it's the first section
-        const prevBg = i === 0 ? "var(--color-dark-bg)" : scrollColorElems[i - 1].dataset.bgcolor;
-        const prevText = i === 0 ? "var(--color-text-light)" : scrollColorElems[i - 1].dataset.textcolor;
+        const prevBg = i === 0 ? initialBg : scrollColorElems[i - 1].dataset.bgcolor;
+        const prevText = i === 0 ? initialText : scrollColorElems[i - 1].dataset.textcolor;
 
         ScrollTrigger.create({
             trigger: colorSection,
             // Trigger animation when the top of the section enters the middle of the viewport
             start: "top 50%", 
             
-            // Animate body colors when entering the section
-            onEnter: () =>
-                gsap.to("body", {
+            // Animate content area background & body text color when entering the section
+            onEnter: () => {
+                // Animate the translucent background (contentArea)
+                gsap.to(contentArea, {
                     backgroundColor: colorSection.dataset.bgcolor,
+                    duration: 0.5,
+                    overwrite: "auto"
+                });
+                // Animate the text color (body)
+                gsap.to("body", {
                     color: colorSection.dataset.textcolor,
                     duration: 0.5,
                     overwrite: "auto"
-                }),
+                });
+            },
             
-            // Animate body colors back to the previous section's colors when scrolling up
-            onLeaveBack: () =>
-                gsap.to("body", {
+            // Animate back when scrolling up
+            onLeaveBack: () => {
+                 // Animate the translucent background (contentArea)
+                gsap.to(contentArea, {
                     backgroundColor: prevBg,
+                    duration: 0.5,
+                    overwrite: "auto"
+                });
+                // Animate the text color (body)
+                gsap.to("body", {
                     color: prevText,
                     duration: 0.5,
                     overwrite: "auto"
-                })
+                });
+            }
         });
     });
 };
 
 
 /* =======================================================
-   EXISTING SCRIPTS (Re-organized)
-   ======================================================= */
+    EXISTING SCRIPTS (Re-organized)
+    ======================================================= */
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 💥 0. INITIALIZE PARTICLES.JS (MOVED HERE FOR RELIABILITY) 💥
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80, // Number of particles
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00bcd4" // Primary accent color (Cyan)
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 1.0, /* 🔥 MAX OPACITY */
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ff9100", // Secondary accent color for lines (Orange)
+                    "opacity": 0.9, /* 🔥 NEAR MAX OPACITY */
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse" // Particles push away when cursor hovers
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push" // New particles appear when clicked
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
 
     // Initialize the GSAP Color Changer
     initColorChanger();
@@ -72,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 3. Dynamic Nav Highlighting (IntersectionObserver) ---
-    // NOTE: This IntersectionObserver is kept for nav highlighting, but the color change is now handled by GSAP.
     const sections = document.querySelectorAll('.content-section');
     const navLinks = document.querySelectorAll('.nav-link'); 
     
@@ -124,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 5. Universal Smooth Scroll ---
-    // This is the original logic. The `html { scroll-behavior: smooth; }` in CSS is usually enough, but this JS ensures custom offsets and works in older browsers.
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -168,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     skillBars.forEach(bar => {
-                        // Use getAttribute('data-progress') instead of dataset.progress as it might not be set in the initial structure
+                        // This will set the width to '100%' based on the HTML attribute
                         const progress = bar.getAttribute('data-progress');
                         bar.style.setProperty('width', `${progress}%`);
                     });
@@ -188,10 +328,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.getComputedStyle(progressBar.parentNode).display !== 'none' && window.innerWidth > 768) {
                 const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
                 const scrolled = document.documentElement.scrollTop;
-                // Ensure scrollTotal is not zero to prevent division by zero
                 const progress = scrollTotal > 0 ? (scrolled / scrollTotal) * 100 : 0; 
                 
-                // Directly set the CSS variable or inject the style (simplifying the style injection)
                 const styleElement = document.getElementById('progress-style') || document.createElement('style');
                 styleElement.id = 'progress-style';
                 styleElement.innerHTML = `#reading-progress-indicator::after { height: ${progress}%; }`;
