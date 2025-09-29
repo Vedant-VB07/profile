@@ -1,0 +1,71 @@
+/* Basic Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling on link click */
+}
+body {
+    font-family: sans-serif;
+    color: #333;
+}
+
+/* Two-Column Layout */
+#app-container {
+    display: flex;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    width: 250px; /* Adjust as needed */
+    position: fixed; /* KEEPS IT IN PLACE */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 30px 20px;
+    background-color: #f8f8f8; /* Light background */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #666;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active { /* This class is added by JavaScript */
+    color: #007bff; /* Highlight color */
+    border-left: 3px solid #007bff;
+    font-weight: bold;
+}
+
+/* Content Area Styling */
+#content-area {
+    /* Push content over to make room for the sidebar */
+    margin-left: 250px;
+    flex-grow: 1;
+}
+
+.content-section {
+    min-height: 100vh; /* Ensures sections take up enough screen space */
+    padding: 100px 50px;
+    /* Use different background colors/patterns for contrast between sections */
+}
+
+/* Example: Differentiate sections */
+#home { background: #fff; }
+#about { background: #f0f0f0; }
+#skills { background: #fff; }
+#work { background: #f0f0f0; }
+#contact { background: #fff; }
