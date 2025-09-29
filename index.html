@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Dynamic Portfolio</title>
+    <title>Vedant Bondekar - Futuristic Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
+    
+    <div id="particles-js"></div> 
+    
     <div id="app-container">
         
         <header id="mobile-header">
-            <h1 class="logo">John Doe</h1>
+            <h1 class="logo">V. BONDEKAR</h1>
             <button id="menu-toggle">☰</button>
         </header>
 
         <aside id="sidebar">
-            <h1 class="logo">John Doe</h1>
+            <h1 class="logo">V. Bondekar</h1>
             <nav id="desktop-nav">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#work" class="nav-link">Work</a>
+                <a href="#work" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
             <div id="reading-progress-indicator"></div> 
@@ -37,118 +40,114 @@
              <a href="#home" class="mobile-nav-link">Home</a>
              <a href="#about" class="mobile-nav-link">About</a>
              <a href="#skills" class="mobile-nav-link">Skills</a>
-             <a href="#work" class="mobile-nav-link">Work</a>
+             <a href="#work" class="mobile-nav-link">Experience</a>
              <a href="#contact" class="mobile-nav-link">Contact</a>
         </nav>
 
         <main id="content-area">
             
-            <section id="home" class="content-section hero-section">
-                <div id="particles-js"></div> 
+            <section id="home" class="content-section hero-section" data-aos="fade-up" data-bgcolor="#0a111a" data-textcolor="#e0e6eb">
                 <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-                    <p class="greeting">Hi, I'm</p>
-                    <h1 class="hero-title">John Doe.</h1>
+                    <p class="greeting">Welcome</p>
+                    <h1 class="hero-title">VEDANT BONDEKAR</h1>
                     <span id="typed-output" class="hero-subtitle"></span>
-                    <a href="#work" class="cta-button">View My Work</a>
+                    <a href="#about" class="cta-button">INITIATE</a>
                 </div>
             </section>
             
-            <section id="about" class="content-section" data-aos="fade-up">
-                <h2>About Me</h2>
-                <p>I specialize in crafting elegant, responsive, and high-performance user interfaces. My work philosophy centers around clean code architecture and a dedication to superior user experience. I thrive in environments that challenge me to explore new technologies and deliver impactful results.</p>
-                <p>Over the last 5 years, I've transformed complex requirements into seamless, functional web applications. My passion lies in solving challenging problems and building intuitive, user-centric designs that leave a lasting impression.</p>
+            <section id="about" class="content-section" data-aos="fade-up" data-bgcolor="#2A1D0D" data-textcolor="#FFD7A8">
+                <h2>Summary & Vision</h2>
+                <p>Hi there! I'm **Vedant Bondekar**, a B.Tech student in Computer Science and Engineering at **IIT Gandhinagar**. I have a strong interest in **software development, programming, and the critical domain of cybersecurity**. I actively explore these fields through coursework and hands-on learning.</p>
+                
+                <p>I'm passionate about **problem-solving** and exploring systems—whether it's analysing secure code, experimenting with new technologies, or understanding how software works under the hood. I'm currently upskilling in areas like cybersecurity and software development, and I'm always looking to grow through real-world projects and internships.</p>
+
+                <p>Alongside academics, I'm deeply involved in co-curricular life, organizing **Blithchron** (the Cultural Fest of IIT Gandhinagar), and serving in the **Student Senate** as an Elected Representative. These experiences have significantly sharpened my **teamwork, leadership, and time management skills**. I'm currently open to opportunities in software development, cybersecurity, and related tech-driven roles.</p>
             </section>
             
-            <section id="skills" class="content-section">
-                <h2>Core Skills</h2>
+            <section id="skills" class="content-section" data-bgcolor="#0F1E19" data-textcolor="#A8FFC5">
+                <h2>Skills & Competencies</h2>
                 
                 <div class="skill-item" data-aos="fade-right">
                     <div class="skill-card">
-                        <h3>Frontend Mastery</h3>
-                        <p>React, Vue, state management (Redux/Vuex), and modern component architecture.</p>
+                        <h3>Cybersecurity & Systems</h3>
+                        <p>Core focus on network security, penetration testing tools, and system analysis.</p>
                         <div class="skill-tags">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vue.js</span>
-                            <span class="skill-tag">Redux</span>
+                            <span class="skill-tag">Kali Linux</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">Red Teaming</span>
                         </div>
                         <div class="progress-bar-container">
                             <div class="progress-bar" data-progress="90"></div>
                         </div>
                     </div>
                     <div class="skill-description">
-                        <p>I build single-page applications (SPAs) that are fast and scalable. Focusing on performance optimization and modular design is key to delivering maintainable and robust frontend solutions.</p>
+                        <p>My expertise in this domain is validated by hands-on experience and professional training, including certifications in **Pre Security Certificate** and **Cyber Security 101 Certificate**. I thrive on analysing secure code and understanding system architecture.</p>
                     </div>
                 </div>
 
                 <div class="skill-item reverse" data-aos="fade-left">
                     <div class="skill-description">
-                        <p>Expert in utility-first CSS (Tailwind) and complex component styling with Sass/Less. I guarantee pixel-perfect, responsive layouts that adapt beautifully to any screen size, ensuring a consistent user experience.</p>
+                        <p>Strong foundational knowledge in programming, essential for both backend development and complex problem-solving in security environments.</p>
                     </div>
                     <div class="skill-card">
-                        <h3>Design & Styling</h3>
-                        <p>Tailwind CSS, Sass, PostCSS, and deep knowledge of CSS Grid/Flexbox.</p>
+                        <h3>Programming & Languages</h3>
+                        <p>Proficiency in languages key for development and communication.</p>
                         <div class="skill-tags">
-                            <span class="skill-tag">Tailwind CSS</span>
-                            <span class="skill-tag">Sass</span>
-                            <span class="skill-tag">CSS Grid</span>
-                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Python (Basic)</span>
+                            <span class="skill-tag">English (Full Professional)</span>
+                            <span class="skill-tag">Hindi (Full Professional)</span>
+                            <span class="skill-tag">Marathi (Full Professional)</span>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar" data-progress="95"></div>
+                            <div class="progress-bar" data-progress="85"></div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-aos="fade-right">
-                    <div class="skill-card">
-                        <h3>Backend & Database</h3>
-                        <p>Node.js, Express, MongoDB, and RESTful API design.</p>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Express.js</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">REST APIs</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" data-progress="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-description">
-                        <p>Experience in designing robust backend services and efficient data models to power large-scale applications. I focus on secure and performant API development that serves diverse frontend needs.</p>
                     </div>
                 </div>
             </section>
             
-            <section id="work" class="content-section">
-                <h2>Featured Projects</h2>
+            <section id="work" class="content-section" data-bgcolor="#1B0D1E" data-textcolor="#FFA8EA">
+                <h2>Selected Experience</h2>
                 
                 <div class="work-subsection" data-aos="zoom-in" data-aos-delay="200">
-                    <h3>Project Alpha: E-commerce Platform</h3>
-                    <p>A full-stack e-commerce solution built with Next.js and Stripe integration. Focused on high-speed product loading and conversion tracking.</p>
-                    <a href="#" target="_blank">View Case Study</a>
+                    <h3>Events Coordinator & Executive, Blithchron, IIT Gandhinagar</h3>
+                    <p class="subtitle">April 2025 - Present (Coordinator) | August 2024 - April 2025 (Executive)</p>
+                    <p>Contributed actively to two major flagship segments: **Panache** (fashion show competition) and **Pronites**.</p>
+                    <p>Gained critical hands-on experience in **high-stakes event coordination, team collaboration, and crisis management**, working to create memorable experiences for thousands of attendees.</p>
+                    <a href="#contact">Contact for Event Strategy</a>
                 </div>
 
                 <div class="work-subsection" data-aos="zoom-in" data-aos-delay="400">
-                    <h3>Project Beta: Data Visualization Dashboard</h3>
-                    <p>A responsive dashboard using D3.js and Vue to render complex data sets into intuitive charts and graphs. Designed for real-time analytics.</p>
-                    <a href="#" target="_blank">View Live Demo</a>
+                    <h3>Senator, Student Senate, Indian Institute of Technology Gandhinagar</h3>
+                    <p class="subtitle">April 2025 - Present</p>
+                    <p>Elected representative serving as a bridge between the student body and the institute administration.</p>
+                    <p>Contributed to policy discussions, raised student concerns, and participated in decision-making on academic, infrastructural, and campus life matters. Actively worked to enhance **transparency, student welfare, and campus engagement**.</p>
+                    <a href="#contact">Discuss Policy & Governance</a>
                 </div>
 
                 <div class="work-subsection" data-aos="zoom-in" data-aos-delay="600">
-                    <h3>Project Gamma: Portfolio Site Generator</h3>
-                    <p>A headless CMS project that allows users to generate and host their own portfolios instantly. Built with Strapi and deployed on Vercel.</p>
-                    <a href="#" target="_blank">GitHub Repo</a>
+                    <h3>Football Team, Inter IIT Sports Meet 2024</h3>
+                    <p class="subtitle">December 2024</p>
+                    <p>Represented IIT Gandhinagar in the prestigious Inter IIT Sports Meet, competing at the national level against teams from other IITs.</p>
+                    <p>Contributed as a player in the football team, demonstrating **teamwork, discipline, and strategic thinking** under high-pressure match conditions. Gained valuable experience in sportsmanship, inter-institutional collaboration, and resilience through rigorous training and competition.</p>
+                    <a href="#contact">Connect for Team Building</a>
+                </div>
+
+                 <div class="work-subsection" data-aos="zoom-in" data-aos-delay="800">
+                    <h3>Team Member, Annuity - Finance Club, IIT Gandhinagar</h3>
+                    <p class="subtitle">August 2024 - April 2025</p>
+                    <p>Contributed to organizing finance-based workshops, discussions, and competitions.</p>
+                    <p>Aimed at promoting financial literacy and market awareness on campus.</p>
+                    <a href="#contact">Discuss Finance</a>
                 </div>
             </section>
             
-            <section id="contact" class="content-section" data-aos="fade-up">
+            <section id="contact" class="content-section" data-aos="fade-up" data-bgcolor="#0a111a" data-textcolor="#e0e6eb">
                 <h2>Get In Touch</h2>
-                <p>I'm currently available for freelance projects and full-time roles. Let's create something exceptional together.</p>
-                <a href="mailto:your.email@example.com" class="cta-button contact-button">Say Hello!</a>
+                <p>I'm currently open to opportunities in software development, cybersecurity, and related tech-driven roles. Let's connect to discuss collaboration!</p>
+                <a href="mailto:vedantbondekar@gmail.com" class="cta-button contact-button">Email Me (vedantbondekar@gmail.com)</a>
                 <div class="social-links">
                     <a href="https://github.com/your-username" target="_blank">GitHub</a> |
-                    <a href="https://linkedin.com/in/your-username" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/vedant-bondekar-937808322" target="_blank">LinkedIn</a>
                 </div>
             </section>
 
@@ -157,9 +156,14 @@
 
     <div id="custom-cursor"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script> 
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script src="js/script.js"></script>
 </body>

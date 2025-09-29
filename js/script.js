@@ -1,19 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
+// 1. Initialize GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+/* =======================================================
+   COLOR CHANGER (GSAP ScrollTrigger)
+   ======================================================= */
+const initColorChanger = () => {
+    const scrollColorElems = document.querySelectorAll(".content-section[data-bgcolor]");
     
-    // --- 1. AOS Initialization ---
+    scrollColorElems.forEach((colorSection, i) => {
+        // Determine the color of the previous section for the transition back
+        // Defaults to the body's initial color (set in CSS) if it's the first section
+        const prevBg = i === 0 ? "var(--color-dark-bg)" : scrollColorElems[i - 1].dataset.bgcolor;
+        const prevText = i === 0 ? "var(--color-text-light)" : scrollColorElems[i - 1].dataset.textcolor;
+
+        ScrollTrigger.create({
+            trigger: colorSection,
+            // Trigger animation when the top of the section enters the middle of the viewport
+            start: "top 50%", 
+            
+            // Animate body colors when entering the section
+            onEnter: () =>
+                gsap.to("body", {
+                    backgroundColor: colorSection.dataset.bgcolor,
+                    color: colorSection.dataset.textcolor,
+                    duration: 0.5,
+                    overwrite: "auto"
+                }),
+            
+            // Animate body colors back to the previous section's colors when scrolling up
+            onLeaveBack: () =>
+                gsap.to("body", {
+                    backgroundColor: prevBg,
+                    color: prevText,
+                    duration: 0.5,
+                    overwrite: "auto"
+                })
+        });
+    });
+};
+
+
+/* =======================================================
+   EXISTING SCRIPTS (Re-organized)
+   ======================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Initialize the GSAP Color Changer
+    initColorChanger();
+
+    // --- 1. AOS Initialization (Scroll Reveal Animations) ---
     AOS.init({
         duration: 1000,
-        once: true, // Animations only happen once when scrolling down
-        offset: 100 // Trigger animations sooner
+        once: true,
+        offset: 100
     });
 
     // --- 2. Typed.js for Hero Section ---
     if (document.getElementById('typed-output')) {
         new Typed('#typed-output', {
             strings: [
-                "I craft beautiful web experiences.",
-                "I build high-performance SPAs.",
-                "I am a Frontend Developer & Tech Enthusiast."
+                "Sophomore @IIT Gandhinagar | CSE.",
+                "Exploring Software, Systems, and Cybersecurity.",
+                "Events Coordinator @Blithchron | Senator."
             ],
             typeSpeed: 50,
             backSpeed: 25,
@@ -23,134 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Particles.js for Hero Background ---
-    if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#00bcd4" // Matches --color-primary
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#00bcd4", // Matches --color-primary
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    }
-
-    // --- 4. Spy-Scrolling Logic (Desktop) ---
+    // --- 3. Dynamic Nav Highlighting (IntersectionObserver) ---
+    // NOTE: This IntersectionObserver is kept for nav highlighting, but the color change is now handled by GSAP.
     const sections = document.querySelectorAll('.content-section');
-    const navLinks = document.querySelectorAll('.nav-link'); // Desktop links
-
+    const navLinks = document.querySelectorAll('.nav-link'); 
+    
     const options = {
-        rootMargin: '-50px 0px -50% 0px', // Adjust active link when section is more in the middle
-        threshold: 0.1 // When at least 10% of the section is visible
+        rootMargin: '-20% 0px -70% 0px', 
+        threshold: 0
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const id = entry.target.id;
             const correspondingLink = document.querySelector(`#desktop-nav a[href="#${id}"]`);
 
             if (entry.isIntersecting) {
-                // Remove 'active' class from all links
+                // Update Navigation Links (Gulp effect)
                 navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Add 'active' class to the currently visible section's link
                 if (correspondingLink) {
                     correspondingLink.classList.add('active');
                 }
@@ -159,10 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, options);
 
     sections.forEach(section => {
-        observer.observe(section);
+        sectionObserver.observe(section);
     });
-    
-    // --- 5. Mobile Hamburger Menu Logic ---
+    // --- End Dynamic Nav Highlighting ---
+
+
+    // --- 4. Mobile Hamburger Menu Logic ---
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -183,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 6. Universal Smooth Scroll (for both desktop and mobile links) ---
+    // --- 5. Universal Smooth Scroll ---
+    // This is the original logic. The `html { scroll-behavior: smooth; }` in CSS is usually enough, but this JS ensures custom offsets and works in older browsers.
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -191,8 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Adjust scroll position to account for the fixed header on mobile or sticky elements
-                const offset = window.innerWidth <= 768 ? 70 : 0; // Height of mobile header
+                const offset = window.innerWidth <= 768 ? 70 : 0; 
                 window.scrollTo({
                     top: targetElement.offsetTop - offset, 
                     behavior: 'smooth'
@@ -201,35 +141,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. Custom Glowing Cursor ---
+    // --- 6. Custom Glowing Cursor ---
     const customCursor = document.getElementById('custom-cursor');
-    if (customCursor) {
+    if (customCursor && !('ontouchstart' in window || navigator.maxTouchPoints)) {
         document.addEventListener('mousemove', (e) => {
             customCursor.style.left = e.clientX + 'px';
             customCursor.style.top = e.clientY + 'px';
         });
+    } else if (customCursor) {
+        customCursor.style.display = 'none';
     }
 
-    // --- 8. Skill Progress Bar Animation ---
-    const skillBars = document.querySelectorAll('.progress-bar');
+
+    // --- 7. Skill Progress Bar Animation ---
     const skillSection = document.getElementById('skills');
 
-    if (skillSection && skillBars.length > 0) {
+    if (skillSection) {
+        const skillBars = document.querySelectorAll('.progress-bar');
         const skillObserverOptions = {
-            root: null, // relative to the viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of the section is visible
+            threshold: 0.5
         };
 
         const skillObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     skillBars.forEach(bar => {
-                        const progress = bar.dataset.progress; // Get progress from data-progress attribute
-                        bar.style.setProperty('--progress-width', `${progress}%`); // Set CSS variable
-                        bar.classList.add('animate'); // Trigger CSS animation
+                        // Use getAttribute('data-progress') instead of dataset.progress as it might not be set in the initial structure
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.setProperty('width', `${progress}%`);
                     });
-                    observer.unobserve(skillSection); // Stop observing once animated
+                    observer.unobserve(skillSection);
                 }
             });
         }, skillObserverOptions);
@@ -238,16 +181,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 9. Reading Progress Indicator ---
+    // --- 8. Reading Progress Indicator ---
     const progressBar = document.getElementById('reading-progress-indicator');
     if (progressBar) {
         window.addEventListener('scroll', () => {
-            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = document.documentElement.scrollTop;
-            const progress = (scrolled / scrollTotal) * 100;
-
-            progressBar.style.setProperty('--progress-height', `${progress}%`);
-            progressBar.querySelector('::after').style.height = `${progress}%`;
+            if (window.getComputedStyle(progressBar.parentNode).display !== 'none' && window.innerWidth > 768) {
+                const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = document.documentElement.scrollTop;
+                // Ensure scrollTotal is not zero to prevent division by zero
+                const progress = scrollTotal > 0 ? (scrolled / scrollTotal) * 100 : 0; 
+                
+                // Directly set the CSS variable or inject the style (simplifying the style injection)
+                const styleElement = document.getElementById('progress-style') || document.createElement('style');
+                styleElement.id = 'progress-style';
+                styleElement.innerHTML = `#reading-progress-indicator::after { height: ${progress}%; }`;
+                document.head.appendChild(styleElement);
+            }
         });
     }
 });
